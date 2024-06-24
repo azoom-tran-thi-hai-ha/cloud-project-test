@@ -1,0 +1,11 @@
+{
+  "name": "cloud-project-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/azoom-tran-thi-hai-ha/cloud-project-test.git",
+  "author": "Tran Thi Hai Ha <tran.thi.hai.ha@azoom.jp>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

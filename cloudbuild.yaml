@@ -1,0 +1,14 @@
+steps:
+- id: build
+  name: 'gcr.io/kaniko-project/executor:latest'
+  args:
+  - --destination=gcr.io/$PROJECT_ID/haiha-cloud-run-app
+  - --cache=true
+  - --cache-ttl=6h
+- id: deploy
+  name: gcr.io/cloud-builders/gcloud
+  entrypoint: bash
+  args:
+    - '-c'
+    - |
+      gcloud beta run deploy haiha-cloud-run-app --platform managed --region asia-northeast1 --no-allow-unauthenticated --image gcr.io/$PROJECT_ID/haiha-cloud-run-app
