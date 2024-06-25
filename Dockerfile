@@ -1,5 +1,5 @@
 # Use the official Node.js image that includes Yarn
-FROM node:14-slim
+FROM node:20-slim
 
 # Create and change to the app directory
 WORKDIR /usr/src/app
@@ -14,4 +14,4 @@ RUN yarn install
 COPY . .
 
 # Start the application
-CMD ["node", "index.js"]
+CMD ["yarn", "start"]

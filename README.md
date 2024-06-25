@@ -55,3 +55,48 @@ gcloud run deploy --image gcr.io/YOUR_PROJECT_ID/haiha-cloud-run-app --platform 
 ```
 
 Replace *YOUR_PROJECT_ID* with your Google Cloud project ID and *YOUR_REGION* with your preferred region.
+
+## 3 Deploy to Cloud Functions
+
+### 3.1 Test Locally (Optional)
+
+Start server
+
+```
+yarn start
+```
+
+Then you can verify url by command
+
+```
+curl http://localhost:8080
+```
+
+### 3.2 Deploy to Cloud Function
+
+Deploy your function
+
+```
+gcloud functions deploy haihaCloudFunctionTest \
+  --runtime nodejs20 \
+  --trigger-http \
+  --allow-unauthenticated \
+  --region YOUR_REGION \
+  --project=YOUR_PROJECT_ID
+```
+
+Replace *YOUR_PROJECT_ID* with your Google Cloud project ID and *YOUR_REGION* with your preferred region.
+
+Here's what the other options mean:
+
+- --runtime nodejs14: Specifies the runtime environment. Replace nodejs14 with the appropriate runtime for your function.
+- --trigger-http: Indicates that the function will be triggered by HTTP requests.
+- --allow-unauthenticated: Allows the function to be invoked without authentication. Remove this option if you want to require authentication.
+
+
+Then you can verify deployment by command
+
+```
+curl YOUR_FUNCTION_URL
+```
+Replace *YOUR_FUNCTION_URL* with `httpsTrigger url` of deployment result.

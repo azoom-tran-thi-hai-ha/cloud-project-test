@@ -5,7 +5,11 @@
   "repository": "https://github.com/azoom-tran-thi-hai-ha/cloud-project-test.git",
   "author": "Tran Thi Hai Ha <tran.thi.hai.ha@azoom.jp>",
   "license": "MIT",
+  "scripts": {
+    "start": "functions-framework --target=haihaCloudFunctionTest"
+  },
   "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.0",
     "express": "^4.19.2"
   }
 }
