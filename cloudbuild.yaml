@@ -12,3 +12,14 @@ steps:
     - '-c'
     - |
       gcloud run deploy haiha-cloud-run-app --platform managed --region asia-northeast1 --allow-unauthenticated --image gcr.io/$PROJECT_ID/haiha-cloud-run-app
+- id: deploy-function
+  name: gcr.io/cloud-builders/gcloud
+  entrypoint: bash
+  args:
+    - '-c'
+    - |
+      gcloud functions deploy helloWorld \
+        --runtime nodejs14 \
+        --trigger-http \
+        --allow-unauthenticated \
+        --project=cloud-project-test
